@@ -27,7 +27,7 @@
 
 <body class="font-poppins h-auto bg-background scroll-smooth">
     <!-- Navbar atas -->
-    <nav class="fixed left-0 border-b-slate-50 border-b-2 right-0 -top-2 py-2 px-4 bg-main z-50"
+    <nav class="fixed left-0 border-b-slate-50 border-b-2 right-0 top-0 py-2 px-4 bg-main z-50"
         x-data="{navOpen : false}">
         <div class="container mx-auto">
             <div class="flex items-center justify-between">

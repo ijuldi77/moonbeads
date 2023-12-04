@@ -1237,6 +1237,11 @@ h1 {
   margin: 2.25rem;
 }
 
+.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -1250,11 +1255,6 @@ h1 {
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-
-.mx-2{
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .-mr-1{
@@ -1432,6 +1432,10 @@ h1 {
   height: 0.75rem;
 }
 
+.h-36{
+  height: 9rem;
+}
+
 .h-4{
   height: 1rem;
 }
@@ -1448,10 +1452,6 @@ h1 {
   height: 2.25rem;
 }
 
-.h-\[144px\]{
-  height: 144px;
-}
-
 .h-\[200px\]{
   height: 200px;
 }
@@ -1462,22 +1462,6 @@ h1 {
 
 .h-full{
   height: 100%;
-}
-
-.h-36{
-  height: 9rem;
-}
-
-.h-44{
-  height: 11rem;
-}
-
-.h-40{
-  height: 10rem;
-}
-
-.h-\[155px\]{
-  height: 155px;
 }
 
 .min-h-screen{
@@ -3072,6 +3056,10 @@ h1 {
 
 .pt-2{
   padding-top: 0.5rem;
+}
+
+.pt-4{
+  padding-top: 1rem;
 }
 
 .text-left{

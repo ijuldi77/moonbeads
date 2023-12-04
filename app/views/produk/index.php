@@ -1,5 +1,5 @@
 <!-- main -->
-<section class="bg-main w-full min-h-screen flex flex-col justify-between"
+<section class="w-full min-h-screen flex flex-col justify-between"
     x-data="{ showWhatsApp: false, showInstagram: false, showFacebook: false, showEmail: false }">
     <div class="flex-grow">
         <!-- Konten yang sudah ada -->
@@ -59,33 +59,33 @@
                         <picture class="rounded-lg mx-4 block overflow-hidden">
                             <img class="hover:scale-125 h-36 object-center object-cover w-full ease-in-out duration-200"
                                 src="../public/img/produk/<?= $produk['foto']; ?>" alt="product image" />
-                            </picture>
-                            <div class="px-5 py-4 flex flex-col justify-center items-center">
-                                <a href="#">
-                                    <h5 class="text-xl font-semibold tracking-normal text-gray-900 dark:text-white">
+                        </picture>
+                        <div class="px-5 py-4 flex flex-col justify-center items-center">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-normal text-gray-900 dark:text-white">
                                     <?= $produk['nama']; ?>
                                 </h5>
                             </a>
                             <div class="flex items-center mt-2.5 mb-5">
                                 <span
                                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3"><?= $produk['harga']; ?></span>
-                                </div>
-                                <div class="flex items-center justify-center">
-                                    <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white"
+                            </div>
+                            <div class="flex items-center justify-center">
+                                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white"
                                 >10K</span
                                 > -->
-                                    <a href="#"
-                                        class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Beli</a>
-                                </div>
+                                <a href="#"
+                                    class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Beli</a>
                             </div>
                         </div>
+                    </div>
                     <?php endforeach; ?>
                 </div>
             </section>
             <!-- ... -->
         </div>
     </div>
-    <div>
+    <div class="bg-main">
         <!-- Bagian footer yang ingin tetap di bagian bawah halaman -->
         <div class="flex items-center p-3 justify-between border-b-2 border-violet-300">
             <a href="#main" class="text-3xl ml-4 text-ungu font-semibold">
@@ -121,10 +121,11 @@
             </ul>
         </div>
         <!-- ... -->
+
+        <span class="block text-sm my-2 text-gray-500 text-center">
+            © 2023 <a href="#" class="hover:underline">MoonBeads™</a>. All Rights Reserved.
+        </span>
     </div>
-    <span class="block text-sm my-2 text-gray-500 text-center">
-        © 2023 <a href="#" class="hover:underline">MoonBeads™</a>. All Rights Reserved.
-    </span>
     </div>
 </section>
 
