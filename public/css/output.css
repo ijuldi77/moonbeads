@@ -1252,6 +1252,11 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
+.mx-2{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .-mr-1{
   margin-right: -0.25rem;
 }
@@ -1443,6 +1448,10 @@ h1 {
   height: 2.25rem;
 }
 
+.h-\[144px\]{
+  height: 144px;
+}
+
 .h-\[200px\]{
   height: 200px;
 }
@@ -1453,6 +1462,22 @@ h1 {
 
 .h-full{
   height: 100%;
+}
+
+.h-36{
+  height: 9rem;
+}
+
+.h-44{
+  height: 11rem;
+}
+
+.h-40{
+  height: 10rem;
+}
+
+.h-\[155px\]{
+  height: 155px;
 }
 
 .min-h-screen{
@@ -2910,6 +2935,11 @@ h1 {
 .object-scale-down{
   -o-object-fit: scale-down;
      object-fit: scale-down;
+}
+
+.object-center{
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-1{
