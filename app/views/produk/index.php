@@ -6,14 +6,25 @@
         <div class="w-full">
             <section class="mt-[70px]" x-data="{ open: false }">
                 <!-- judul -->
-                <div class="bg-pink font-bold text-gray-200 flex justify-between items-center pl-3 pr-5 lg:px-12">
+                <div
+                    class="bg-pink font-bold text-gray-200 flex gap-x-2 justify-between items-center pl-3 pr-5 lg:px-12">
                     <div class="font-bold text-lg lg:text-2xl p-1 lg:p-4">Katalog Product</div>
+                    <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                        class="lg:block md:block hidden text-white bg-ungu hover:bg-violet-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        type="button">
+                        Tambah
+                    </button>
+                    <!-- <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                        class="lg:hidden md:hidden block text-white bg-ungu hover:bg-violet-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        type="button">
+                        <ion-icon name="add" class="font-bold text-white"></ion-icon>
+                    </button> -->
                     <div class="flex gap-x-8">
                         <div class="relative inline-block z-10 text-left">
                             <div>
                                 <button @click="open = !open" type="button"
                                     class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                                    Categories
+                                    Jenis
                                     <!-- Heroicon name: chevron-down -->
                                     <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -36,15 +47,17 @@
                                         role="menuitem">Bracelets</a>
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                         role="menuitem">Phone Strap</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">Custom</a>
                                 </div>
                             </div>
                         </div>
                         <div class="flex justify-center gap-2 items-center">
                             <input type="search" name="cariproduk" id="cariproduk"
-                                class="h-10 rounded-md hidden border-none text-gray-600"
+                                class="h-10 rounded-md border-none hidden md:block text-gray-600"
                                 placeholder="masukkan kata kunci" />
-                            <button type="submit" class="bg-button text-gray-200 rounded-lg hover:text-white p-2">
-                                Cari
+                            <button type="submit" class="bg-ungu font-medium text-white rounded-lg p-2">
+                                <ion-icon name="search" class="text-lg"></ion-icon>
                             </button>
                         </div>
                     </div>
@@ -68,17 +81,19 @@
                             </a>
                             <div class="flex items-center mt-2.5 mb-5">
                                 <span
-                                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3"><?= $produk['harga']; ?></span>
-                            </div>
-                            <div class="flex items-center justify-center">
-                                <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white"
+                                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                                    <?= $produk['harga']; ?>
+                                    </span>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white"
                                 >10K</span
                                 > -->
-                                <a href="#"
-                                    class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Beli</a>
+                                    <a href="#"
+                                        class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Beli</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
             </section>
@@ -128,7 +143,74 @@
     </div>
     </div>
 </section>
-
+<!-- Main modal -->
+<div id="crud-modal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                <h3 class="text-lg font-semibold text-gray-900">
+                    Tambah Produk
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                    data-modal-toggle="crud-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form action="<?= BaseURL; ?>/produk/tambah" method="post" enctype="multipart/form-data" class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama Produk</label>
+                        <input type="text" name="nama" id="nama"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="Masukkan nama produk" required>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="harga" class="block mb-2 text-sm font-medium text-gray-900">Harga</label>
+                        <input type="number" name="harga" id="harga"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="ex:10000" required>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="jenis" class="block mb-2 text-sm font-medium text-gray-900">Jenis</label>
+                        <select id="jenis" name="jenis"
+                            class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                            <option value="Ring">Ring</option>
+                            <option value="Bracelet">Bracelet</option>
+                            <option value="Phone Strap">Phone Strap</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="foto" class="block mb-2 text-sm font-medium text-gray-900">Foto</label>
+                        <input type="file" id="foto" rows="1" name="foto"
+                            class="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300"
+                            required></input>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Tambah Produk
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 <!-- lcdn -->
 <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

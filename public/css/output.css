@@ -1201,6 +1201,10 @@ h1 {
   order: 3;
 }
 
+.col-span-2{
+  grid-column: span 2 / span 2;
+}
+
 .float-right{
   float: right;
 }
@@ -1261,6 +1265,11 @@ h1 {
   margin-right: -0.25rem;
 }
 
+.-ms-1{
+  -webkit-margin-start: -0.25rem;
+          margin-inline-start: -0.25rem;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1277,8 +1286,17 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .mb-5{
   margin-bottom: 1.25rem;
+}
+
+.me-1{
+  -webkit-margin-end: 0.25rem;
+          margin-inline-end: 0.25rem;
 }
 
 .ml-2{
@@ -1295,6 +1313,11 @@ h1 {
 
 .mr-2{
   margin-right: 0.5rem;
+}
+
+.ms-auto{
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
 }
 
 .mt-14{
@@ -1448,6 +1471,10 @@ h1 {
   height: 1.5rem;
 }
 
+.h-8{
+  height: 2rem;
+}
+
 .h-9{
   height: 2.25rem;
 }
@@ -1456,12 +1483,20 @@ h1 {
   height: 200px;
 }
 
+.h-\[calc\(100\%-1rem\)\]{
+  height: calc(100% - 1rem);
+}
+
 .h-auto{
   height: auto;
 }
 
 .h-full{
   height: 100%;
+}
+
+.max-h-full{
+  max-height: 100%;
 }
 
 .min-h-screen{
@@ -1504,6 +1539,10 @@ h1 {
   width: 16rem;
 }
 
+.w-8{
+  width: 2rem;
+}
+
 .w-\[30rem\]{
   width: 30rem;
 }
@@ -1514,6 +1553,10 @@ h1 {
 
 .w-full{
   width: 100%;
+}
+
+.max-w-md{
+  max-width: 28rem;
 }
 
 .flex-1{
@@ -2730,6 +2773,11 @@ h1 {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.bg-gray-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
 .bg-gray-800{
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -3824,9 +3872,19 @@ h1 {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-gray-200:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-gray-50:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-violet-400:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(167 139 250 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-violet-800:hover{
@@ -4142,6 +4200,10 @@ h1 {
 }
 
 @media (min-width: 640px){
+  .sm\:col-span-1{
+    grid-column: span 1 / span 1;
+  }
+
   .sm\:block{
     display: block;
   }
@@ -4152,6 +4214,10 @@ h1 {
 }
 
 @media (min-width: 768px){
+  .md\:inset-0{
+    inset: 0px;
+  }
+
   .md\:bottom-36{
     bottom: 9rem;
   }
@@ -4166,6 +4232,14 @@ h1 {
 
   .md\:order-3{
     order: 3;
+  }
+
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
   }
 
   .md\:h-12{
@@ -4202,6 +4276,10 @@ h1 {
 
   .md\:gap-2{
     gap: 0.5rem;
+  }
+
+  .md\:p-5{
+    padding: 1.25rem;
   }
 
   .md\:px-2{
