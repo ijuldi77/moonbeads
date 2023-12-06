@@ -63,8 +63,11 @@
                     </div>
                 </div>
                 <!-- list -->
+                <div>
+                    <?php Flasher::flash(); ?>
+                </div>
                 <div
-                    class="w-full lg:grid-flow-col lg:mt-6 relative grid grid-cols-2 md:grid-cols-3 place-items-center gap-3 md:gap-2 md:px-2 lg:grid-cols-5 lg:gap-3 py-3">
+                    class="w-full lg:grid-flow-row lg:mt-6 relative grid grid-cols-2 md:grid-cols-3 place-items-center gap-3 md:gap-2 md:px-2 lg:grid-cols-5 lg:gap-3 py-3">
                     <?php foreach ($data['produk'] as $produk): ?>
                     <!-- card 1 -->
                     <div
@@ -84,9 +87,9 @@
                                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
                                     <?= $produk['harga']; ?>
                                     </span>
-                                </div>
-                                <div class="flex items-center justify-center">
-                                    <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white"
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <!-- <span class="text-3xl font-bold text-gray-900 dark:text-white"
                                 >10K</span
                                 > -->
                                     <a href="#"

@@ -18,6 +18,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
     <!-- animasi -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- css -->
     <link href="<?= BaseURL; ?>/css/output.css" rel="stylesheet" />
     <title>
@@ -25,7 +28,7 @@
     </title>
 </head>
 
-<body class="font-poppins h-auto bg-background scroll-smooth">
+<body class="font-poppins h-auto bg-background scroll-smooth overflow-x-hidden">
     <!-- Navbar atas -->
     <nav class="fixed left-0 border-b-slate-50 border-b-2 right-0 top-0 py-2 px-4 bg-main z-50"
         x-data="{navOpen : false}">

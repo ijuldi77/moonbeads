@@ -7,6 +7,7 @@ class Produk extends Controller{
         $data['produk'] = $this->model('Produk_model')->getAllProduk();
         $this->view('templates/header', $data);
         $this->view('produk/index', $data);
+        Flasher::flash();
     }
 
     // public function tambah()
@@ -49,9 +50,15 @@ class Produk extends Controller{
                 ];
 
                 if ($this->model('Produk_model')->tambahProduk($data) > 0) {
+                    Flasher::setFlash('Berhasil', 'ditambahkan', 'success');
+                    header('Location: ' . BaseURL . '/produk');
+                    exit;
+                } else {
+                    Flasher::setFlash('Gagal', 'ditambahkan', 'error');
                     header('Location: ' . BaseURL . '/produk');
                     exit;
                 }
+                
             } else {
                 die("Maaf, ada kesalahan saat mengunggah file Anda.");
             }

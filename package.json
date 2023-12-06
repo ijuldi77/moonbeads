@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mulai": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch", 
+    "mulai": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "js": "npx esbuild public/js/inputalpine.js --outfile=public/js/script.js --bundle --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.13.2",
+    "aos": "^3.0.0-beta.6",
     "esbuild": "^0.19.5",
     "flowbite": "^2.0.0"
   }
