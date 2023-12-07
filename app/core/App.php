@@ -36,6 +36,7 @@ class App
 
         // jalankan controllers dan method dan jalankan params jika ada
         call_user_func_array([$this->controller, $this->method], $this->params);
+        // call_user_func_array([$this->controller, $this->method], [$this->params]);
     }
 
 

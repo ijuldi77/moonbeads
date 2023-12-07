@@ -51,6 +51,7 @@ AOS.init({
     once: true
 });
 </script>
+<script src="<?= BaseURL; ?>/js/ajax.js"></script>
 </body>
 
 </html>

@@ -57,6 +57,77 @@ class Produk_model{
         return $this->db->rowCount();
     }
 
+    public function hapusProduk($id_produk)
+    {
+        $query = "DELETE FROM produk WHERE id_produk = :id_produk";
+        $this->db->query($query);
+        $this->db->bind('id_produk', $id_produk);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function getProdukById($id_produk)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_produk=:id_produk ');
+        $this->db->bind('id_produk', $id_produk);
+        return $this->db->single();
+    }
+
+
+    // public function editProduk($data) {
+    //     // Ambil ID produk dari data yang dikirim
+    //     $id_produk = $data['id_produk'];
+
+    //     // Update data produk berdasarkan ID
+    //     $query = "UPDATE produk SET nama = :nama, jenis = :jenis, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
+    //     $this->db->query($query);
+    //     $this->db->bind('id_produk', $id_produk);
+    //     $this->db->bind('nama', $data['nama']);
+    //     $this->db->bind('jenis', $data['jenis']);
+    //     $this->db->bind('harga', $data['harga']);
+    //     $this->db->bind('foto', $data['foto']);
+    //     $this->db->execute();
+
+    //     return $this->db->rowCount();
+    // }
+    public function editProduk($data)
+    {
+        // Ambil ID produk dari data yang dikirim
+        $id_produk = $data['id_produk'];
+
+
+        // Periksa apakah ID produk yang akan diedit benar-benar ada di database
+        $checkQuery = "SELECT id_produk FROM produk WHERE id_produk = :id_produk";
+        $this->db->query($checkQuery);
+        $this->db->bind('id_produk', $id_produk);
+        $this->db->execute();
+        return $this->db->rowCount();
+
+
+        if ($this->db->rowCount() > 0) {
+            // Update data produk berdasarkan ID
+            $query = "UPDATE produk SET nama = :nama, jenis = :jenis, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
+            $this->db->query($query);
+            $this->db->bind('id_produk', $id_produk);
+            $this->db->bind('nama', $data['nama']);
+            $this->db->bind('jenis', $data['jenis']);
+            $this->db->bind('harga', $data['harga']);
+            $this->db->bind('foto', $data['foto']);
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        } else {
+            // Handle jika ID produk tidak ditemukan
+            die("<script>
+                alert('ID produk tidak ditemukan di database');
+                window.location.href='" . BaseURL . "/produk';
+            </script>");
+        }
+    }
+
+
 
 
 

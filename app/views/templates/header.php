@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
     <!-- css -->
     <link href="<?= BaseURL; ?>/css/output.css" rel="stylesheet" />
     <title>
@@ -37,7 +36,7 @@
                 <a href="<?= BaseURL; ?>" class="text-4xl md:order-1 text-ungu font-semibold">
                     <span class="text-pink font-bold">Moon</span>Beads</a>
                 <div class="lg:hidden md:order-3 order-1">
-                    <img @click="navOpen = !navOpen" src="../public/logo/toogle.svg" alt="" />
+                    <img @click="navOpen = !navOpen" src="../public/img/logo/toogle.svg" alt="" />
                 </div>
 
                 <div class="order-2 hidden lg:block">

@@ -77,7 +77,7 @@
        <!-- produk -->
        <div class="relative w-full">
            <!-- Judul Bagian 1 -->
-           <div class="flex justify-center my-3" data-aos="zoom-in-up" data-aos-duration="2000">
+           <div class="flex justify-center my-3" data-aos="fade-up" data-aos-duration="2000">
                <a href="#" class="text-3xl font-bold">
                    <span class="text-ungu hover:underline underline-offset-8">Kategori</span></a>
            </div>

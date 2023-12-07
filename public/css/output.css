@@ -1265,11 +1265,6 @@ h1 {
   margin-right: -0.25rem;
 }
 
-.-ms-1{
-  -webkit-margin-start: -0.25rem;
-          margin-inline-start: -0.25rem;
-}
-
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1292,16 +1287,6 @@ h1 {
 
 .mb-5{
   margin-bottom: 1.25rem;
-}
-
-.me-1{
-  -webkit-margin-end: 0.25rem;
-          margin-inline-end: 0.25rem;
-}
-
-.me-3{
-  -webkit-margin-end: 0.75rem;
-          margin-inline-end: 0.75rem;
 }
 
 .ml-2{
@@ -1578,10 +1563,6 @@ h1 {
 
 .flex-shrink{
   flex-shrink: 1;
-}
-
-.flex-shrink-0{
-  flex-shrink: 0;
 }
 
 .shrink{
@@ -2744,11 +2725,6 @@ h1 {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-green-300{
-  --tw-border-opacity: 1;
-  border-color: rgb(132 225 188 / var(--tw-border-opacity));
-}
-
 .border-paletepink{
   --tw-border-opacity: 1;
   border-color: rgb(255 144 179 / var(--tw-border-opacity));
@@ -2812,11 +2788,6 @@ h1 {
 .bg-gray-900{
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
-.bg-green-50{
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 250 247 / var(--tw-bg-opacity));
 }
 
 .bg-main{
@@ -4111,11 +4082,6 @@ h1 {
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
 
-:is(.dark .dark\:border-green-800){
-  --tw-border-opacity: 1;
-  border-color: rgb(3 84 63 / var(--tw-border-opacity));
-}
-
 :is(.dark .dark\:border-transparent){
   border-color: transparent;
 }
@@ -4180,11 +4146,6 @@ h1 {
 :is(.dark .dark\:text-gray-800){
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-green-400){
-  --tw-text-opacity: 1;
-  color: rgb(49 196 141 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:text-white){
@@ -4277,10 +4238,6 @@ h1 {
 
   .md\:block{
     display: block;
-  }
-
-  .md\:hidden{
-    display: none;
   }
 
   .md\:h-12{
@@ -4397,20 +4354,12 @@ h1 {
     grid-auto-flow: column;
   }
 
-  .lg\:grid-flow-row-dense{
-    grid-auto-flow: row dense;
-  }
-
   .lg\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-5{
     grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-6{
-    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:justify-around{
