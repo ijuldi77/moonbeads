@@ -141,8 +141,6 @@ class Produk extends Controller{
                 'harga' => $harga,
                 'foto' => $foto
             ];
-            print_r($data);
-            die;
             if ($this->model('Produk_model')->editProduk($data) > 0) {
                 Flasher::setFlash('Berhasil', 'diubah', 'success');
                 header('Location: ' . BaseURL . '/produk');

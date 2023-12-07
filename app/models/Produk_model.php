@@ -97,16 +97,15 @@ class Produk_model{
         // Ambil ID produk dari data yang dikirim
         $id_produk = $data['id_produk'];
 
-
         // Periksa apakah ID produk yang akan diedit benar-benar ada di database
-        $checkQuery = "SELECT id_produk FROM produk WHERE id_produk = :id_produk";
+        $checkQuery = "SELECT foto FROM produk WHERE id_produk = :id_produk";
         $this->db->query($checkQuery);
         $this->db->bind('id_produk', $id_produk);
-        $this->db->execute();
-        return $this->db->rowCount();
+        $result = $this->db->single();
+        
+        $foto = empty($data['foto']) ? $data['foto'] : $result['foto'];
 
-
-        if ($this->db->rowCount() > 0) {
+        if ($result) {
             // Update data produk berdasarkan ID
             $query = "UPDATE produk SET nama = :nama, jenis = :jenis, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
             $this->db->query($query);
@@ -114,7 +113,7 @@ class Produk_model{
             $this->db->bind('nama', $data['nama']);
             $this->db->bind('jenis', $data['jenis']);
             $this->db->bind('harga', $data['harga']);
-            $this->db->bind('foto', $data['foto']);
+            $this->db->bind('foto', $foto);
             $this->db->execute();
 
             return $this->db->rowCount();
