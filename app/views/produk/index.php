@@ -178,7 +178,6 @@
             <!-- Modal body -->
             <form id="form_cu" action="<?= BaseURL; ?>/produk/tambah" method="post" enctype="multipart/form-data"
                 class="p-4 md:p-5">
-                <!-- <input type="hidden" name="id_produk" id="id_produk" value="<?php //$produk['id_produk']; ?>"> -->
                 <input type="hidden" name="id_produk" id="idProduk">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">

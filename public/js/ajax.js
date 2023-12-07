@@ -50,15 +50,13 @@ $(function () {
       success: function (data) {
         // Set nilai untuk elemen-elemen formulir edit
         console.log(data);
+        $("#idProduk").val(data.id_produk);
         $("#editNama").val(data.nama);
         $("#editJenis").val(data.jenis);
         $("#editHarga").val(data.harga);
 
         // Set nilai input tipe foto sesuai dengan nama file foto dari JSON
         $("#editFoto").val(data.foto);
-
-        var hiddenInput = document.getElementById("idProduk");
-        hiddenInput.value(data.id_produk);
       },
     });
   });
