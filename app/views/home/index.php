@@ -1,7 +1,7 @@
    <!-- Hero Section -->
    <section class="w-full mt-14">
        <div class="bg-white py-3 md:py-5 lg:py-4">
-           <div class="flex justify-center mb-3" id="main" data-aos="zoom-in-up" data-aos-duration="2000">
+           <div class="flex justify-center mb-3" id="main" data-aos="zoom-in" data-aos-duration="2000">
                <a href="" class="text-3xl text-gray-400 font-bold hover:underline decoration-ungu underline-offset-4">
                    <span class="text-ungu">Promo</span> Now</a>
            </div>
@@ -13,22 +13,22 @@
                <div class="relative h-full rounded-lg">
                    <!-- Item 1 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="../public/img/produk/Carousel1.jpg"
+                       <img src="<?= BaseURL; ?>/img/produk/Carousel1.jpg"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                    <!-- Item 2 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="../public/img/produk/beads.jpg"
+                       <img src="<?= BaseURL; ?>/img/produk/beads.jpg"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                    <!-- Item 3 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="../public/img/produk/carousel3.jpg"
+                       <img src="<?= BaseURL; ?>/img/produk/carousel3.jpg"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                    <!-- Item 4 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="../public/img/produk/carousel2.jpg"
+                       <img src="<?= BaseURL; ?>/img/produk/carousel2.jpg"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                </div>
@@ -77,18 +77,19 @@
        <!-- produk -->
        <div class="relative w-full">
            <!-- Judul Bagian 1 -->
-           <div class="flex justify-center my-3" data-aos="fade-up" data-aos-duration="2000">
+           <div class="flex justify-center my-3" data-aos="zoom-in" data-aos-duration="2000">
                <a href="#" class="text-3xl font-bold">
                    <span class="text-ungu hover:underline underline-offset-8">Kategori</span></a>
            </div>
            <div
-               class="w-full relative grid grid-cols-2 md:grid-cols-4 place-items-center gap-3 md:gap-0 md:px-2 lg:grid-cols-4 py-3">
+               class="w-full relative grid grid-cols-2 md:grid-cols-4 place-items-center gap-3 md:gap-1 md:px-1 lg:grid-cols-4 py-3">
                <!-- card 1 -->
                <div class="p-4 w-40 lg:w-52 md:w-52 flex flex-col bg-white border border-gray-200 rounded-xl shadow-md"
                    data-aos="zoom-in-up" data-aos-duration="2000">
                    <picture class="rounded-lg block overflow-hidden">
-                       <img class="hover:scale-125 ease-in-out duration-200" src="../public/img/produk/gelang1.jpg"
-                           alt="product image" />
+                       <img class="hover:scale-125 ease-in-out duration-200"
+                           src="<?= BaseURL; ?>/img/produk/gelang1.jpg"
+                        alt="product image" />
                    </picture>
                    <div class="px-5 py-4 flex flex-col justify-center items-center">
                        <a href="#">
@@ -113,7 +114,7 @@
                <div class="p-4 w-40 lg:w-52 md:w-52 flex flex-col bg-white border border-gray-200 rounded-xl shadow-md"
                    data-aos="zoom-in-up" data-aos-duration="2000">
                    <picture class="rounded-lg block overflow-hidden">
-                       <img class="hover:scale-125 ease-in-out duration-200" src="../public/img/produk/cincin.jpg"
+                       <img class="hover:scale-125 ease-in-out duration-200" src="<?= BaseURL; ?>/img/produk/cincin.jpg"
                            alt="product image" />
                    </picture>
                    <div class="px-5 py-4 flex flex-col justify-center items-center">
@@ -140,7 +141,7 @@
                    data-aos="zoom-in-up" data-aos-duration="2000">
                    <div>
                        <picture class="rounded-lg block overflow-hidden">
-                           <img class="hover:scale-125 ease-in-out duration-200" src="../public/img/produk/hp.jpg"
+                           <img class="hover:scale-125 ease-in-out duration-200" src="<?= BaseURL; ?>/img/produk/hp.jpg"
                                alt="product image" />
                        </picture>
                    </div>
@@ -165,7 +166,7 @@
                    data-aos="zoom-in-up" data-aos-duration="2000">
                    <div>
                        <picture class="rounded-lg block overflow-hidden">
-                           <img class="hover:scale-125 ease-in-out duration-200" src="../public/img/produk/hp.jpg"
+                           <img class="hover:scale-125 ease-in-out duration-200" src="<?= BaseURL; ?>/img/produk/hp.jpg"
                                alt="product image" />
                        </picture>
                    </div>
@@ -188,7 +189,7 @@
            </div>
            <!-- Best Produk -->
            <div class="promo flex flex-col items-center justify-center p-4 mt-3 relative w-full bg-red-200">
-               <div class="my-2" data-aos="zoom-in-up" data-aos-duration="2000">
+               <div class="my-2" data-aos="zoom-in" data-aos-duration="2000">
                    <a href="#" class="text-3xl font-bold text-ungu hover:underline underline-offset-4">
                        Best Seller
                    </a>
@@ -197,28 +198,28 @@
                <div class="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 place-content-between">
                    <!-- best 1 -->
                    <div class="flex flex-col items-center gap-2 p-2" data-aos="zoom-in" data-aos-duration="1000">
-                       <img src="../public/img/produk/contoh1.jpg" alt="" class="w-28 h-28 rounded-full" />
+                       <img src="<?= BaseURL; ?>/img/produk/contoh1.jpg" alt="" class="w-28 h-28 rounded-full" />
                        <h5 class="text-xl font-semibold text-gray-900">Lio</h5>
                        <a href="#"
                            class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center">Beli</a>
                    </div>
                    <!-- best 2 -->
                    <div class="flex flex-col items-center gap-2 p-2" data-aos="zoom-in" data-aos-duration="1000">
-                       <img src="../public/img/produk/contoh2.jpg" alt="" class="w-28 h-28 rounded-full" />
+                       <img src="<?= BaseURL; ?>/img/produk/contoh2.jpg" alt="" class="w-28 h-28 rounded-full" />
                        <h5 class="text-xl font-semibold text-gray-900">Angel</h5>
                        <a href="#"
                            class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center">Beli</a>
                    </div>
                    <!-- best 3 -->
                    <div class="flex flex-col items-center gap-2 p-2" data-aos="zoom-in" data-aos-duration="1000">
-                       <img src="../public/img/produk/contoh3.jpg" alt="" class="w-28 h-28 rounded-full" />
+                       <img src="<?= BaseURL; ?>/img/produk/contoh3.jpg" alt="" class="w-28 h-28 rounded-full" />
                        <h5 class="text-xl font-semibold text-gray-900">Vio</h5>
                        <a href="#"
                            class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center">Beli</a>
                    </div>
                    <!-- best 4 -->
                    <div class="flex flex-col items-center gap-2 p-2" data-aos="zoom-in" data-aos-duration="1000">
-                       <img src="../public/img/produk/contoh4.jpg" alt="" class="w-28 h-28 rounded-full" />
+                       <img src="<?= BaseURL; ?>/img/produk/contoh4.jpg" alt="" class="w-28 h-28 rounded-full" />
                        <h5 class="text-xl font-semibold text-gray-900">Gio</h5>
                        <a href="#"
                            class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center">Beli</a>
@@ -233,18 +234,32 @@
                    Testimoni
                </h3>
            </div>
-           <div class="flex justify-center items-center gap-6 pt-2 pb-5 px-10" data-aos="zoom-in-up"
-               data-aos-duration="2000">
-               <img src="../public/img/testimoni/t1.jpg" alt="testimoni1"
-                   class="w-40 hover:scale-110 duration-200 rounded-xl" />
-               <img src="../public/img/testimoni/t2.jpg" alt="testimoni1"
-                   class="w-40 hover:scale-110 duration-200 rounded-xl" />
-               <img src="../public/img/testimoni/t3a.jpg" alt="testimoni1"
-                   class="w-40 hover:scale-110 duration-200 rounded-xl" />
-               <img src="../public/img/testimoni/t4a.jpg" alt="testimoni1"
-                   class="w-40 hover:scale-110 duration-200 rounded-xl" />
-               <img src="../public/img/testimoni/t5a.jpg" alt="testimoni1"
-                   class="w-40 hover:scale-110 duration-200 rounded-xl" />
+           <!-- <div class="flex md:flex-col bg-blue-500 justify-center items-center gap-6 pt-2 pb-5 px-10"> -->
+           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full place-items-center px-4 py-3 gap-4">
+               <div class="">
+                   <img src="<?= BaseURL; ?>/img/testimoni/t1.jpg" alt="testimoni1"
+                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
+            </div>
+            <div class="">
+                <img src="<?= BaseURL; ?>/img/testimoni/t2.jpg" alt="testimoni1"
+                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
+            </div>
+            <div class="">
+                <img src="<?= BaseURL; ?>/img/testimoni/t3a.jpg" alt="testimoni1"
+                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
+            </div>
+            <div class="">
+                <img src="<?= BaseURL; ?>/img/testimoni/t4a.jpg" alt="testimoni1"
+                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
+            </div>
+            <div class="">
+                <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
+                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
+            </div>
+            <div class="">
+                <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
+                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
+            </div>
            </div>
            <div class="lg:h-5 w-full md:h-12 h-9 md:bottom-36 bottom-11 relative lg:bottom-72 -z-10">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="">

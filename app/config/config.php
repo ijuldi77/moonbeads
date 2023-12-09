@@ -1,6 +1,6 @@
 <?php
 
-define('BaseURL', 'http://localhost/moonbeads/public');
+define('BaseURL', 'http://localhost/moonbeads');
 
 // Database
 define('DB_HOST', 'localhost');

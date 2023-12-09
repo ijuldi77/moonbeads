@@ -29,19 +29,19 @@
 
 <body class="font-poppins h-auto bg-background scroll-smooth overflow-x-hidden">
     <!-- Navbar atas -->
-    <nav class="fixed left-0 border-b-slate-50 border-b-2 right-0 top-0 py-2 px-4 bg-main z-50"
+    <nav class="fixed left-0 border-b-slate-50 border-b-2 right-0 -top-2 lg:top-0 md:top-0 py-2 px-4 bg-main z-50"
         x-data="{navOpen : false}">
         <div class="container mx-auto">
             <div class="flex items-center justify-between">
                 <a href="<?= BaseURL; ?>" class="text-4xl md:order-1 text-ungu font-semibold">
                     <span class="text-pink font-bold">Moon</span>Beads</a>
                 <div class="lg:hidden md:order-3 order-1">
-                    <img @click="navOpen = !navOpen" src="../public/img/logo/toogle.svg" alt="" />
+                    <img @click="navOpen = !navOpen" src="<?= BaseURL; ?>/img/logo/toogle.svg" alt="" />
                 </div>
 
                 <div class="order-2 hidden lg:block">
                     <ul class="flex gap-16">
-                        <li class="text-grey font-bold opacity-50 hover:text-violet-400 hover:opacity-90 text-sm">
+                        <li class="text-grey font-bold opacity-50 h over:text-violet-400 hover:opacity-90 text-sm">
                             <a href="<?= BaseURL; ?>">Home</a>
                         </li>
                         <li class="text-grey font-bold opacity-50 hover:text-violet-400 hover:opacity-90 text-sm">
@@ -80,8 +80,8 @@
                 <li>
                     <a href="<?= BaseURL; ?>">
                         <button class="flex justify-center flex-col items-center gap-1">
-                            <ion-icon name="home-outline" class="text-2xl text-ungu"></ion-icon>
-                            <span class="text-ungu text-base font-bold">Home</span>
+                            <ion-icon name="home-outline" class="text-2xl text-grey opacity-50"></ion-icon>
+                            <span class="text-grey opacity-50 text-base font-normal">Home</span>
                         </button>
                     </a>
                 </li>

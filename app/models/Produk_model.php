@@ -75,37 +75,31 @@ class Produk_model{
         return $this->db->single();
     }
 
-
-    // public function editProduk($data) {
-    //     // Ambil ID produk dari data yang dikirim
-    //     $id_produk = $data['id_produk'];
-
-    //     // Update data produk berdasarkan ID
-    //     $query = "UPDATE produk SET nama = :nama, jenis = :jenis, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
-    //     $this->db->query($query);
-    //     $this->db->bind('id_produk', $id_produk);
-    //     $this->db->bind('nama', $data['nama']);
-    //     $this->db->bind('jenis', $data['jenis']);
-    //     $this->db->bind('harga', $data['harga']);
-    //     $this->db->bind('foto', $data['foto']);
-    //     $this->db->execute();
-
-    //     return $this->db->rowCount();
-    // }
     public function editProduk($data)
     {
         // Ambil ID produk dari data yang dikirim
         $id_produk = $data['id_produk'];
+        $nama = $data['nama'];
+        $jens = $data['jenis'];
+        $harga = $data['harga'];
+        $foto = $data['foto'];
 
         // Periksa apakah ID produk yang akan diedit benar-benar ada di database
         $checkQuery = "SELECT foto FROM produk WHERE id_produk = :id_produk";
         $this->db->query($checkQuery);
         $this->db->bind('id_produk', $id_produk);
         $result = $this->db->single();
-        
-        $foto = empty($data['foto']) ? $data['foto'] : $result['foto'];
+
+        // $foto = empty($data['foto']['name']) ? $result['foto'] : $this->handleFileUpload($data['foto']);
+        if (empty($data['foto']['name'])) {
+            $foto = $result['foto'];
+            // return $this->db->rowCount();
+        } else {
+            $foto = $this->handleFileUpload($data['foto']);
+        }
 
         if ($result) {
+            
             // Update data produk berdasarkan ID
             $query = "UPDATE produk SET nama = :nama, jenis = :jenis, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
             $this->db->query($query);
@@ -113,20 +107,58 @@ class Produk_model{
             $this->db->bind('nama', $data['nama']);
             $this->db->bind('jenis', $data['jenis']);
             $this->db->bind('harga', $data['harga']);
+            // if (empty($data['foto']['name'])) {
+            //     $foto = $result['foto'];
+            //     // print_r($foto);
+            //     return $this->db->rowCount();
+            // } else {
+            //     $foto = $this->handleFileUpload($data['foto']);
+            // }
+
             $this->db->bind('foto', $foto);
             $this->db->execute();
 
             return $this->db->rowCount();
-        } else {
-            // Handle jika ID produk tidak ditemukan
-            die("<script>
-                alert('ID produk tidak ditemukan di database');
-                window.location.href='" . BaseURL . "/produk';
-            </script>");
         }
     }
 
+    private function handleFileUpload($file)
+    {
+        $allowedExtensions = ['jpg', 'jpeg', 'png'];
+        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/moonbeads/public/img/produk/'; // Ganti dengan direktori upload yang sesuai
 
+        $fileName = basename($file['name']);
+        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+        if (in_array($fileExtension, $allowedExtensions)) {
+            $uploadFile = $uploadDir . $fileName;
+
+            if (move_uploaded_file($file['tmp_name'], $uploadFile)) {
+                return $fileName;
+            } else {
+                // Handle error if file upload fails
+                die("<script>
+                alert('File upload failed!');
+                window.location.href='" . BaseURL . "/produk';
+            </script>");
+            }
+        } else {
+            // Handle jika ekstensi file tidak diizinkan
+            die("<script>
+            alert('Ekstensi file harus jpg, jpeg, atau png');
+            window.location.href='" . BaseURL . "/produk';
+        </script>");
+        }
+    }
+
+    public function cariProduk()
+    {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM produk WHERE nama LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        return $this->db->resultSet();
+    }
 
 
 
