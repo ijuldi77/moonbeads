@@ -12,67 +12,28 @@ class User extends Model
         $this->table = 'users';
     }
 
-    //method - method lainnya
-    // public function getUserByEmail($email)
-    // {
-    //     $query = "SELECT * FROM {$this->table} WHERE email = :email";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
+    public function getUserByEmail($email)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE email = :email";
+        $this->query($query);
+        $this->bind(':email', $email);
+        return $this->single();
+    }
 
-    // public function verifyLogin($email, $password)
-    // {
-    //     $user = $this->getUserByEmail($email);
-    //     if ($user && password_verify($password, $user['password'])) {
-    //         // Password matches
-    //         return $user;
-    //     } else {
-    //         // Invalid credentials
-    //         return false;
-    //     }
-    // }
+    public function login($data)
+    {
+        $user = $this->getUserByEmail($data['email']);
 
-    // public function daftar($data)
-    // {
-    //     // 1. Periksa ID produk yang telah ada untuk mendapatkan urutan maksimal.
-    //     $queryMaxId = "SELECT MAX(SUBSTRING(id_user, 4)) as max_id FROM {$this->table}";
-    //     // $stmt = $this->conn->prepare($queryMaxId);
-    //     $this->query($queryMaxId);
-    //     $result = $this->single();
-
-    //     // $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    //     $maxId = $result['max_id'];
-    //     // 2. Tambahkan 1 ke urutan maksimal untuk mendapatkan urutan yang akan digunakan untuk produk baru.
-    //     $nextOrder = $maxId + 1;
-    //     // 3. Buat ID unik baru dengan format yang diinginkan.
-    //     $prefix = 'US';
-    //     // $tanggal = date('dmy'); // Format tanggal sebagai bagian dari ID
-    //     $newIdUser = $prefix . '-' . $nextOrder;
+        if ($user && password_verify($data['password'], $user['password'])) {
+            // Password matches
+            return true;
+        } else {
+            // Invalid credentials
+            return false;
+        }
+    }
 
 
-    //     $checkQuery = "SELECT email FROM {$this->table} WHERE email = :email";
-    //     $this->query($checkQuery);
-
-    //     $this->bind(':email', $data['email']);
-    //     $a = $this->single();
-    //     // $a = $this->fetch();
-
-    //     // print_r($a);
-    //     // die;
-
-    //     // Sisanya dari metode tambahProduk tetap sama
-    //     $query = "INSERT INTO users VALUES (:id_user, :email, :hashPassword)";
-    //     $this->conn->prepare($query);
-    //     $this->conn->bindParam('id_user', $newIdUser, PDO::PARAM_STR);
-    //     $this->conn->bindParam('email', $data['email'], PDO::PARAM_STR);
-    //     $this->conn->bindParam('hashPassword', $data['password'], PDO::PARAM_STR);
-    //     $this->conn->execute();
-
-    //     return $this->conn->rowCount();
-    // }
     public function daftar($data)
     {
         // 1. Periksa apakah email sudah ada
