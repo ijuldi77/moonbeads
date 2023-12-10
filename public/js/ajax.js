@@ -36,4 +36,21 @@ $(function () {
       },
     });
   });
+
+  $(".tampilHapus").on("click", function () {
+    const id_produk = $(this).data("id");
+    console.log(id_produk);
+    Swal.fire({
+      title: "yakin menghapus product?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Hapus",
+      cancelButtonText: "tidak",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = `http://localhost/moonbeads/public/produk/hapus/${id_produk}`;
+      }
+    });
+  });
 });
+

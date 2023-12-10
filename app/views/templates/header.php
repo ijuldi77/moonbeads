@@ -15,11 +15,12 @@
     <!-- alpine js -->
     <script src="<?= BaseURL; ?>/js/script.js"></script>
     <!-- flowbite -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
+    <link href="<?= BaseURL; ?>/css/flowbite.min.css" rel="stylesheet" />
     <!-- animasi -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="<?= BaseURL; ?>/css/animate.min.css" />
+    <link rel="stylesheet" href="<?= BaseURL; ?>/css/aos.css" />
+    <link rel="stylesheet" href="<?= BaseURL; ?>/css/sweetalert2.min.css" />
+    <script src="<?= BaseURL; ?>/js/sweetalert2.min.js"></script>
     <!-- css -->
     <link href="<?= BaseURL; ?>/css/output.css" rel="stylesheet" />
     <title>

@@ -2,11 +2,11 @@
 
 class Flasher
 {
-  public static function setFlash($pesan, $aksi, $tipe)
+  public static function setFlash($title, $pesan, $tipe)
   {
     $_SESSION['flash'] = [
+      'title' => $title,
       'pesan' => $pesan,
-      'aksi' => $aksi,
       'tipe' => $tipe
     ];
   }
@@ -14,14 +14,14 @@ class Flasher
   public static function flash()
   {
     if (isset($_SESSION['flash'])) {
+      $title = $_SESSION['flash']['title'];
       $pesan = $_SESSION['flash']['pesan'];
-      $aksi = $_SESSION['flash']['aksi'];
       $tipe = $_SESSION['flash']['tipe'];
 
       echo "<script>
             Swal.fire({
-              title: '$pesan',
-              text: 'Data Produk $pesan $aksi',
+              title: '$title',
+              text: '$pesan',
               icon: '$tipe'
             });
           </script>";
@@ -29,34 +29,5 @@ class Flasher
       unset($_SESSION['flash']);
     }
   }
-  // public static function flashHapus()
-  // {
-  //   if (isset($_SESSION['flash'])) {
-  //     $pesan = $_SESSION['flash']['pesan'];
-  //     $aksi = $_SESSION['flash']['aksi'];
-  //     $tipe = $_SESSION['flash']['tipe'];
-
-  //     echo "<script>
-  //     Swal.fire({
-  //       title: "Are you sure?",
-  //       text: "You won't be able to revert this!",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Yes, delete it!"
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         Swal.fire({
-  //           title: "Deleted!",
-  //           text: "Your file has been deleted.",
-  //           icon: "success"
-  //         });
-  //       }
-  //     });
-  //     </script>";
-
-  //     unset($_SESSION['flash']);
-
-  // }
+  
 }

@@ -153,10 +153,11 @@ class Produk_model{
 
     public function cariProduk()
     {
-        $keyword = $_POST['keyword'];
+        $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
         $query = "SELECT * FROM produk WHERE nama LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
+        // header('Location: ' . BaseURL . '/produk');
         return $this->db->resultSet();
     }
 

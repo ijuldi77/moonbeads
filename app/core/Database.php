@@ -27,6 +27,11 @@ class Database{
         }
     }
 
+    public function getPDO()
+    {
+        return $this->dbh;
+    }
+
     public function query($query)
     {
         $this->stmt = $this->dbh->prepare($query);

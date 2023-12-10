@@ -1,10 +1,14 @@
 <?php
 
-class Produk extends Controller{
-    public function index()
+class Produk extends Controller
+{
+    public function index($produk = [])
     {
-        $data['judul']= 'Produk';
-        $data['produk'] = $this->model('Produk_model')->getAllProduk();
+
+        $data['judul'] = 'Produk';
+        $data['produk'] = empty($produk) ? $this->model('Produk_model')->getAllProduk() : $produk;
+        $data['jenis'] = $this->model('Jenis_model')->getAllJenis();
+
         $this->view('templates/header', $data);
         $this->view('produk/index', $data);
         Flasher::flash();
@@ -23,7 +27,6 @@ class Produk extends Controller{
             $nama = $_POST['nama'];
             $jenis = $_POST['jenis'];
             $harga = $_POST['harga'];
-            $IntiUrl = BaseURL;
 
             // Penanganan unggah file
             $targetDirectory = $_SERVER['DOCUMENT_ROOT'] . '/moonbeads/public/img/produk/';
@@ -33,10 +36,8 @@ class Produk extends Controller{
             // Periksa apakah file adalah file gambar yang valid
             $allowedExtensions = ['jpg', 'jpeg', 'png'];
             if (!in_array($imageFileType, $allowedExtensions)) {
-                echo "<script>
-                alert('Harap Upload dengan ekstensi jpg, jpeg, atau png');
-                window.location.href='" . BaseURL . "/produk';
-            </script>";
+                Flasher::setFlash('Gagal', 'Gambar Harus jpg,jpeg,png', 'error');
+                header('Location: ' . BaseURL . '/produk');
                 die;
             }
 
@@ -50,15 +51,15 @@ class Produk extends Controller{
                 ];
 
                 if ($this->model('Produk_model')->tambahProduk($data) > 0) {
-                    Flasher::setFlash('Berhasil', 'ditambahkan', 'success');
+                    Flasher::setFlash('Berhasil', 'Data Produk Berhasil Ditambahkan', 'success');
                     header('Location: ' . BaseURL . '/produk');
                     exit;
                 } else {
-                    Flasher::setFlash('Gagal', 'ditambahkan', 'error');
+                    Flasher::setFlash('Gagal', 'Data Produk Gagal Ditambahkan', 'error');
                     header('Location: ' . BaseURL . '/produk');
                     exit;
                 }
-                
+
             } else {
                 die("Maaf, ada kesalahan saat mengunggah file Anda.");
             }
@@ -70,11 +71,11 @@ class Produk extends Controller{
 
 
         if ($this->model('Produk_model')->hapusProduk($id_produk) > 0) {
-            Flasher::setFlash('Berhasil', 'dihapus', 'success');
+            Flasher::setFlash('Berhasil', 'Data Produk Berhasil Dihapus', 'success');
             header('Location: ' . BaseURL . '/produk');
             exit;
         } else {
-            Flasher::setFlash('Gagal', 'dihapus', 'error');
+            Flasher::setFlash('Gagal', 'Data Produk Gagal Dihapus', 'error');
             header('Location: ' . BaseURL . '/produk');
             exit;
         }
@@ -87,7 +88,7 @@ class Produk extends Controller{
         echo json_encode($this->model('Produk_model')->getProdukById($_POST['id_produk']));
     }
 
-    
+
     public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -105,11 +106,11 @@ class Produk extends Controller{
                 'foto' => $foto
             ];
             if ($this->model('Produk_model')->editProduk($data) > 0) {
-                Flasher::setFlash('Berhasil', 'diubah', 'success');
+                Flasher::setFlash('Berhasil', 'Data Produk Berhasil Diubah', 'success');
                 header('Location: ' . BaseURL . '/produk');
                 exit;
             } else {
-                Flasher::setFlash('Gagal', 'diubah', 'error');
+                Flasher::setFlash('Gagal', 'Data Produk Gagal Diubah', 'error');
                 header('Location: ' . BaseURL . '/produk');
                 exit;
             }
@@ -118,12 +119,15 @@ class Produk extends Controller{
 
     public function cari()
     {
-        $data['judul'] = 'Produk';
-        $data['produk'] = $this->model('Produk_model')->cariProduk();
-        $this->view('templates/header', $data);
-        $this->view('produk/index', $data);
-        Flasher::flash();
+        $produk = $this->model('Produk_model')->cariProduk();
+        // $this->view('templates/header', $data);
+        // $this->view('produk/index', $data);
+        // header('Location: ' . BaseURL . '/produk', $data);
+        // Redirect with the encoded data in the query parameter
+        $this->index($produk);
     }
+
+
 
 
 

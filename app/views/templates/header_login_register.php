@@ -16,8 +16,7 @@
     <!-- alpine js -->
     <script src="<?= BaseURL; ?>/js/script.js"></script>
     <!-- flowbite -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="<? BaseURL; ?>/css/flowbite.min.css" rel="stylesheet" />
     <!-- css -->
     <link href="<?= BaseURL; ?>/css/output.css" rel="stylesheet" />
     <title>
@@ -25,4 +24,4 @@
     </title>
 </head>
 
-<body>
+<body class="font-poppins scroll-smooth overflow-x-hidden">

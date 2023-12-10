@@ -1,3 +1,9 @@
+<script>
+    if (window.location.search) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+</script>
+
 <!-- main -->
 <section class="w-full min-h-screen flex flex-col justify-between"
     x-data="{ showWhatsApp: false, showInstagram: false, showFacebook: false, showEmail: false }">
@@ -40,16 +46,12 @@
                                 class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                                 <div class="py-1" role="menu" aria-orientation="vertical"
                                     aria-labelledby="options-menu">
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem">All</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem">Rings</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem">Bracelets</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem">Phone Strap</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem">Custom</a>
+                                    <?php foreach ($data['jenis'] as $jenis): ?>
+                                        <a href="/produk/kategori/<?= $jenis['id']; ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">
+                                            <?= $jenis['nama_jenis']; ?>
+                                        </a>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
@@ -75,10 +77,10 @@
                         <picture class="rounded-lg mx-4 block overflow-hidden">
                             <img class="hover:scale-125 h-36 object-center object-cover w-full ease-in-out duration-200"
                                 src="<?= BaseURL; ?>/img/produk/<?= $produk['foto']; ?>" alt="product image" />
-                            </picture>
-                            <div class="px-5 py-4 flex flex-col justify-center items-center">
-                                <a href="#">
-                                    <h5 class="text-xl font-semibold tracking-normal text-gray-900 dark:text-white">
+                        </picture>
+                        <div class="px-5 py-4 flex flex-col justify-center items-center">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-normal text-gray-900 dark:text-white">
                                     <?= $produk['nama']; ?>
                                 </h5>
                             </a>
@@ -98,15 +100,15 @@
                                             data-modal-toggle="cu_modal" data-bs-id="<?= $produk['id_produk']; ?>">
                                             <ion-icon name="cut"></ion-icon>
                                         </a>
-                                        <a href="<?= BaseURL; ?>/produk/hapus/<?= $produk['id_produk']; ?>"
-                                            class="text-white items-end bg-pink hover:text-violet-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1 text-center"
-                                            onclick="return confirm('Yakin?');">
+                                        <a href="#"
+                                            class="text-white items-end bg-pink hover:text-violet-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1 text-center tampilHapus"
+                                            data-id="<?= $produk['id_produk']; ?>">
                                             <ion-icon name="trash"></ion-icon>
                                         </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
                     <?php endforeach; ?>
                 </div>
             </section>
@@ -115,10 +117,10 @@
     </div>
     <div class="bg-main">
         <!-- Bagian footer yang ingin tetap di bagian bawah halaman -->
-        <div class="flex items-center p-3 justify-between border-b-2 border-violet-300">
-            <a href="#main" class="text-3xl ml-4 text-ungu font-semibold">
+        <div class="flex lg:items-center p-2 lg:p-3 md:p-2 justify-between border-b-2 border-violet-300">
+            <a href="#main" class="text-3xl mx-3 lg:ml-4 md:ml-4 text-ungu font-semibold">
                 <span class="text-pink font-bold">Moon</span>Beads</a>
-            <ul class="flex gap-x-2 md:justify-around md:w-1/2 lg:w-1/2 lg:justify-around text-gray-500">
+            <ul class="sm:hidden gap-x-2 lg:w-1/2 lg:justify-around text-gray-500 hidden md:flex lg:flex">
                 <li @mouseenter="showWhatsApp = true" @mouseleave="showWhatsApp = false">
                     <a href="https://wa.me/62887435407279" class="hover:text-green-400 text-2xl">
                         <ion-icon name="logo-whatsapp"></ion-icon>
@@ -144,6 +146,28 @@
                     <a href="mailto:moonbeadsbjm@gmail.com" class="hover:text-red-400 text-2xl">
                         <ion-icon name="mail-outline"></ion-icon>
                         <span x-show="showEmail" class="animate__animated animate__zoomIn animate__slow">Email</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="lg:hidden md:hidden gap-x-2 text-gray-500 flex w-1/2 justify-between items-center">
+                <li>
+                    <a href="https://wa.me/62887435407279" class="hover:text-green-400 text-2xl">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/moonbeads_bjm" class="hover:text-violet-700 text-2xl">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/moonbeadsbjm" class="hover:text-blue-500 text-2xl">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:moonbeadsbjm@gmail.com" class="hover:text-red-400 text-2xl">
+                        <ion-icon name="mail-outline"></ion-icon>
                     </a>
                 </li>
             </ul>
@@ -213,7 +237,7 @@
                     </div>
                 </div>
                 <button type="submit" id="submitForm"
-                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    class="text-white inline-flex items-center bg-ungu hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     Tambah Produk
                 </button>
             </form>
@@ -276,8 +300,7 @@
 <!-- lcdn -->
 <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+<script src="<?= BaseURL; ?>/js/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="<?= BaseURL; ?>/js/ajax.js"></script>
 </body>

@@ -1,6 +1,6 @@
    <!-- Hero Section -->
    <section class="w-full mt-14">
-       <div class="bg-white py-3 md:py-5 lg:py-4">
+       <div class="bg-main py-3 md:py-5 lg:py-4">
            <div class="flex justify-center mb-3" id="main" data-aos="zoom-in" data-aos-duration="2000">
                <a href="" class="text-3xl text-gray-400 font-bold hover:underline decoration-ungu underline-offset-4">
                    <span class="text-ungu">Promo</span> Now</a>
@@ -13,22 +13,27 @@
                <div class="relative h-full rounded-lg">
                    <!-- Item 1 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="<?= BaseURL; ?>/img/produk/Carousel1.jpg"
+                       <img src="<?= BaseURL; ?>/img/carousel/1.png"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                    <!-- Item 2 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="<?= BaseURL; ?>/img/produk/beads.jpg"
+                       <img src="<?= BaseURL; ?>/img/carousel/2.png"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                    <!-- Item 3 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="<?= BaseURL; ?>/img/produk/carousel3.jpg"
+                       <img src="<?= BaseURL; ?>/img/carousel/3.png"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                    <!-- Item 4 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                       <img src="<?= BaseURL; ?>/img/produk/carousel2.jpg"
+                       <img src="<?= BaseURL; ?>/img/carousel/4.png"
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="<?= BaseURL; ?>/img/carousel/5.png"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                </div>
@@ -88,8 +93,7 @@
                    data-aos="zoom-in-up" data-aos-duration="2000">
                    <picture class="rounded-lg block overflow-hidden">
                        <img class="hover:scale-125 ease-in-out duration-200"
-                           src="<?= BaseURL; ?>/img/produk/gelang1.jpg"
-                        alt="product image" />
+                           src="<?= BaseURL; ?>/img/produk/gelang1.jpg" alt="product image" />
                    </picture>
                    <div class="px-5 py-4 flex flex-col justify-center items-center">
                        <a href="#">
@@ -238,28 +242,34 @@
            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full place-items-center px-4 py-3 gap-4">
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t1.jpg" alt="testimoni1"
-                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
-            </div>
-            <div class="">
-                <img src="<?= BaseURL; ?>/img/testimoni/t2.jpg" alt="testimoni1"
-                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
-            </div>
-            <div class="">
-                <img src="<?= BaseURL; ?>/img/testimoni/t3a.jpg" alt="testimoni1"
-                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
-            </div>
-            <div class="">
-                <img src="<?= BaseURL; ?>/img/testimoni/t4a.jpg" alt="testimoni1"
-                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
-            </div>
-            <div class="">
-                <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
-                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
-            </div>
-            <div class="">
-                <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
-                    class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up" data-aos-duration="2000" />
-            </div>
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       data-aos-duration="2000" />
+               </div>
+               <div class="">
+                   <img src="<?= BaseURL; ?>/img/testimoni/t2.jpg" alt="testimoni1"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       data-aos-duration="2000" />
+               </div>
+               <div class="">
+                   <img src="<?= BaseURL; ?>/img/testimoni/t3a.jpg" alt="testimoni1"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       data-aos-duration="2000" />
+               </div>
+               <div class="">
+                   <img src="<?= BaseURL; ?>/img/testimoni/t4a.jpg" alt="testimoni1"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       data-aos-duration="2000" />
+               </div>
+               <div class="">
+                   <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
+                       class="w-40 hover:scale-200 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       data-aos-duration="2000" />
+               </div>
+               <div class="">
+                   <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       data-aos-duration="2000" />
+               </div>
            </div>
            <div class="lg:h-5 w-full md:h-12 h-9 md:bottom-36 bottom-11 relative lg:bottom-72 -z-10">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="">
