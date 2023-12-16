@@ -1,7 +1,7 @@
 <script>
-    if (window.location.search) {
-        window.history.replaceState({}, document.title, window.location.pathname);
-    }
+if (window.location.search) {
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
 </script>
 
 <!-- main -->
@@ -10,16 +10,18 @@
     <div class="flex-grow">
         <!-- Konten yang sudah ada -->
         <div class="w-full">
-            <section class="mt-[70px]" x-data="{ open: false }">
+            <section class="lg:mt-[70px] md:mt-[70px] mt-[64px]" x-data="{ open: false }">
                 <!-- judul -->
                 <div
-                    class="bg-pink font-bold text-gray-200 flex gap-x-2 justify-between items-center pl-3 pr-5 lg:px-12">
-                    <div class="font-bold text-lg lg:text-2xl p-1 lg:p-4">Katalog Product</div>
-                    <button data-modal-target="cu_modal" data-modal-toggle="cu_modal"
+                    class="bg-pink font-bold text-gray-200 flex gap-x-2 justify-between items-center pl-3 pr-5 md:py-3 lg:py-1 lg:px-12">
+                    <div class="font-bold text-lg lg:text-2xl p-1 md:ml-5 lg:p-4">Katalog Product</div>
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
+                        echo '<button data-modal-target="cu_modal" data-modal-toggle="cu_modal"
                         class="lg:block md:block hidden text-white bg-ungu hover:bg-violet-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center tampilTambah"
                         type="button">
                         Tambah
-                    </button>
+                    </button>';
+                    } ?>
                     <button data-modal-target="cu_modal" data-modal-toggle="cu_modal"
                         class="lg:hidden md:hidden text-white bg-ungu hover:bg-violet-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-2 pt-2 pb-[3px] text-center tampilTambah"
                         type="button">
@@ -47,7 +49,7 @@
                                 <div class="py-1" role="menu" aria-orientation="vertical"
                                     aria-labelledby="options-menu">
                                     <?php foreach ($data['jenis'] as $jenis): ?>
-                                        <a href="/produk/kategori/<?= $jenis['id']; ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        <a href="/produk/kategori/<?= $jenis['jenis_id']; ?>" class=" block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">
                                             <?= $jenis['nama_jenis']; ?>
                                         </a>
@@ -93,22 +95,24 @@
                                     <div class="flex flex-col items-center space-y-2 justify-center">
                                         <a href="#"
                                             class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Beli</a>
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1): ?>
                                         <div class="flex gap-x-2 justify-center">
                                             <a class="text-white items-end bg-pink hover:text-violet-500 focus:ring-4
                                             focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1
                                             text-center tampilEdit" data-modal-target="cu_modal"
-                                            data-modal-toggle="cu_modal" data-bs-id="<?= $produk['id_produk']; ?>">
-                                            <ion-icon name="cut"></ion-icon>
-                                        </a>
-                                        <a href="#"
-                                            class="text-white items-end bg-pink hover:text-violet-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1 text-center tampilHapus"
-                                            data-id="<?= $produk['id_produk']; ?>">
-                                            <ion-icon name="trash"></ion-icon>
-                                        </a>
+                                                data-modal-toggle="cu_modal" data-bs-id="<?= $produk['id_produk']; ?>">
+                                                <ion-icon name="cut"></ion-icon>
+                                            </a>
+                                            <a href="#"
+                                                class="text-white items-end bg-pink hover:text-violet-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-1 text-center tampilHapus"
+                                                data-id="<?= $produk['id_produk']; ?>">
+                                                <ion-icon name="trash"></ion-icon>
+                                            </a>
                                         </div>
-                                        </div>
-                                        </div>
-                                        </div>
+                                <?php endif; ?>
+                                </div>
+                                </div>
+                                </div>
                     <?php endforeach; ?>
                 </div>
             </section>
@@ -189,7 +193,7 @@
         <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                <h3 class="text-lg font-semibold text-gray-900" id="labelForm">
+                <h3 class="text-lg font-semibold text-gray-900" id="Labform">
                     Tambah Produk
                 </h3>
                 <button type="button"
@@ -206,7 +210,7 @@
             <!-- Modal body -->
             <form id="form_cu" action="<?= BaseURL; ?>/produk/tambah" method="post" enctype="multipart/form-data"
                 class="p-4 md:p-5">
-                <input type="hidden" name="id_produk" id="idProduk">
+                <input type="hidden" name="id_produk" id="id_produk">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama Produk</label>
@@ -222,12 +226,12 @@
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="jenis" class="block mb-2 text-sm font-medium text-gray-900">Jenis</label>
-                        <select id="editJenis" name="jenis"
+                        <select id="editJenis" name="jenis_id"
                             class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-                            <option value="Ring">Ring</option>
-                            <option value="Bracelet">Bracelet</option>
-                            <option value="Phone Strap">Phone Strap</option>
-                            <option value="Custom">Custom</option>
+                            <option value="1">Ring</option>
+                            <option value="2">Bracelet</option>
+                            <option value="3">Phone Strap</option>
+                            <option value="4">Custom</option>
                         </select>
                     </div>
                     <div class="col-span-2">
@@ -236,7 +240,7 @@
                             class="block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300"></input>
                     </div>
                 </div>
-                <button type="submit" id="submitForm"
+                <button type="submit" id="subForm"
                     class="text-white inline-flex items-center bg-ungu hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     Tambah Produk
                 </button>

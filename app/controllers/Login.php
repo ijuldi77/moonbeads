@@ -23,8 +23,10 @@ class Login extends Controller{
         $userModel = $this->model('User');
         $result = $userModel->login($data);
 
-        if ($result === true) {
+        if ($result != false) {
             // Login successful, redirect to home or show success message
+            $_SESSION['role'] = $result['role'];
+            $_SESSION['email'] = $result['email'];
             echo "<script>
                 alert('Login Sukses');
                 window.location='" . BaseURL . "/home';

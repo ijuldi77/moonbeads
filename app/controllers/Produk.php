@@ -25,7 +25,7 @@ class Produk extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $nama = $_POST['nama'];
-            $jenis = $_POST['jenis'];
+            $jenis = $_POST['jenis_id'];
             $harga = $_POST['harga'];
 
             // Penanganan unggah file
@@ -92,19 +92,20 @@ class Produk extends Controller
     public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id_produk = $_POST['id_produk'];
             $nama = $_POST['nama'];
-            $jenis = $_POST['jenis'];
+            $jenis = $_POST['jenis_id'];
             $harga = $_POST['harga'];
             $foto = $_FILES['foto'];
-            $id_produk = $_POST['id_produk'];
-
             $data = [
                 'id_produk' => $id_produk,
                 'nama' => $nama,
-                'jenis' => $jenis,
+                'jenis_id' => $jenis,
                 'harga' => $harga,
                 'foto' => $foto
             ];
+            // print_r($data);
+            // die;
             if ($this->model('Produk_model')->editProduk($data) > 0) {
                 Flasher::setFlash('Berhasil', 'Data Produk Berhasil Diubah', 'success');
                 header('Location: ' . BaseURL . '/produk');

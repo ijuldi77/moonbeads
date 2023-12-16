@@ -80,11 +80,12 @@ class Produk_model{
         // Ambil ID produk dari data yang dikirim
         $id_produk = $data['id_produk'];
         $nama = $data['nama'];
-        $jens = $data['jenis'];
+        $jenis_id = $data['jenis_id'];
         $harga = $data['harga'];
         $foto = $data['foto'];
-
-        // Periksa apakah ID produk yang akan diedit benar-benar ada di database
+        // print_r($id_produk);
+        // exit;
+        // persiapkan plan b untuk siaga jika tidak ada foto diupload
         $checkQuery = "SELECT foto FROM produk WHERE id_produk = :id_produk";
         $this->db->query($checkQuery);
         $this->db->bind('id_produk', $id_produk);
@@ -101,23 +102,15 @@ class Produk_model{
         if ($result) {
             
             // Update data produk berdasarkan ID
-            $query = "UPDATE produk SET nama = :nama, jenis = :jenis, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
+            $query = "UPDATE produk SET nama = :nama, jenis_id = :jenis_id, harga = :harga, foto = :foto WHERE id_produk = :id_produk";
             $this->db->query($query);
             $this->db->bind('id_produk', $id_produk);
-            $this->db->bind('nama', $data['nama']);
-            $this->db->bind('jenis', $data['jenis']);
-            $this->db->bind('harga', $data['harga']);
-            // if (empty($data['foto']['name'])) {
-            //     $foto = $result['foto'];
-            //     // print_r($foto);
-            //     return $this->db->rowCount();
-            // } else {
-            //     $foto = $this->handleFileUpload($data['foto']);
-            // }
+            $this->db->bind('nama', $nama);
+            $this->db->bind('jenis_id', $jenis_id);
+            $this->db->bind('harga', $harga);
 
             $this->db->bind('foto', $foto);
             $this->db->execute();
-
             return $this->db->rowCount();
         }
     }

@@ -1,7 +1,7 @@
 $(function () {
   $(".tampilTambah").on("click", function () {
-    $("#labelForm").html("Tambah Produk");
-    $("#submitForm").html("Tambah Produk");
+    $("#Labform").html("Tambah Produk");
+    $("#subForm").html("Tambah Produk");
 
     // Set elemen formulir ke nilai default atau kosong
     $("#editNama").val("");
@@ -12,8 +12,8 @@ $(function () {
   });
 
   $(".tampilEdit").on("click", function () {
-    $("#labelForm").html("Edit Produk");
-    $("#submitForm").html("Edit Produk");
+    $("#Labform").html("Edit Produk");
+    $("#subForm").html("Edit Produk");
     $("form").attr("action", "http://localhost/moonbeads/public/produk/edit");
 
     // const id_produk = $(this).data("id");
@@ -26,9 +26,9 @@ $(function () {
       success: function (data) {
         // Set nilai untuk elemen-elemen formulir edit
         console.log(data);
-        $("#idProduk").val(data.id_produk);
+        $("#id_produk").val(data.id_produk);
         $("#editNama").val(data.nama);
-        $("#editJenis").val(data.jenis);
+        $("#editJenis").val(data.jenis_id);
         $("#editHarga").val(data.harga);
 
         // Set nilai input tipe foto sesuai dengan nama file foto dari JSON

@@ -26,7 +26,7 @@ class User extends Model
 
         if ($user && password_verify($data['password'], $user['password'])) {
             // Password matches
-            return true;
+            return $user;
         } else {
             // Invalid credentials
             return false;
