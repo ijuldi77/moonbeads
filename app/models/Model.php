@@ -101,6 +101,11 @@ class Model implements CrudInterface
         $this->stmt->execute();
     }
 
+    public function resultAll()
+    {
+        $this->execute();
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function single()
     {
         $this->execute();

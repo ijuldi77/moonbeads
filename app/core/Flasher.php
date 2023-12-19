@@ -17,7 +17,7 @@ class Flasher
       $title = $_SESSION['flash']['title'];
       $pesan = $_SESSION['flash']['pesan'];
       $tipe = $_SESSION['flash']['tipe'];
-
+      
       echo "<script>
             Swal.fire({
               title: '$title',

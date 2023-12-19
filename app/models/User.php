@@ -44,8 +44,11 @@ class User extends Model
 
         if ($result['count'] > 0) {
             // Email sudah ada, hentikan program dan beri pesan
-            die('Email sudah ada dalam database, Silahkan gunakan email lain');
-        }
+            // die('Email sudah ada dalam database, Silahkan gunakan email lain');
+            Flasher::setFlash('Gagal', 'Email Sudah ada , Gunakan Email Lain', 'error');
+            header('Location: ' . BaseURL . '/register');
+            exit;
+        } else {
 
         // Email belum ada, lanjutkan proses pendaftaran
 
@@ -72,6 +75,7 @@ class User extends Model
         // die;
 
         return $this->rowCount();
+        }
     }
 
 

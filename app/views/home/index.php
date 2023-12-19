@@ -1,5 +1,6 @@
    <!-- Hero Section -->
    <section class="w-full mt-14">
+    <?php Flasher::flash(); ?>
        <div class="bg-main py-3 md:py-5 lg:py-4">
            <div class="flex justify-center mb-3" id="main" data-aos="zoom-in" data-aos-duration="2000">
                <a href="" class="text-3xl text-gray-400 font-bold hover:underline decoration-ungu underline-offset-4">
@@ -29,11 +30,11 @@
                    <!-- Item 4 -->
                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
                        <img src="<?= BaseURL; ?>/img/carousel/4.png"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="<?= BaseURL; ?>/img/carousel/5.png"
+                           class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                   </div>
+                   <!-- Item 5 -->
+                   <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                       <img src="<?= BaseURL; ?>/img/carousel/5.png"
                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                    </div>
                </div>
@@ -90,7 +91,7 @@
                class="w-full relative grid grid-cols-2 md:grid-cols-4 place-items-center gap-3 md:gap-1 md:px-1 lg:grid-cols-4 py-3">
                <!-- card 1 -->
                <div class="p-4 w-40 lg:w-52 md:w-52 flex flex-col bg-white border border-gray-200 rounded-xl shadow-md"
-                   data-aos="zoom-in-up" data-aos-duration="2000">
+                   data-aos="zoom-in" data-aos-duration="2000">
                    <picture class="rounded-lg block overflow-hidden">
                        <img class="hover:scale-125 ease-in-out duration-200"
                            src="<?= BaseURL; ?>/img/produk/gelang1.jpg" alt="product image" />
@@ -116,7 +117,7 @@
                </div>
                <!-- card 2 -->
                <div class="p-4 w-40 lg:w-52 md:w-52 flex flex-col bg-white border border-gray-200 rounded-xl shadow-md"
-                   data-aos="zoom-in-up" data-aos-duration="2000">
+                   data-aos="zoom-in" data-aos-duration="2000">
                    <picture class="rounded-lg block overflow-hidden">
                        <img class="hover:scale-125 ease-in-out duration-200" src="<?= BaseURL; ?>/img/produk/cincin.jpg"
                            alt="product image" />
@@ -142,7 +143,7 @@
                </div>
                <!-- card 3 -->
                <div class="p-5 w-40 lg:w-52 md:w-52 flex flex-col bg-white border border-gray-200 rounded-xl shadow-md"
-                   data-aos="zoom-in-up" data-aos-duration="2000">
+                   data-aos="zoom-in" data-aos-duration="2000">
                    <div>
                        <picture class="rounded-lg block overflow-hidden">
                            <img class="hover:scale-125 ease-in-out duration-200" src="<?= BaseURL; ?>/img/produk/hp.jpg"
@@ -167,7 +168,7 @@
                </div>
                <!-- card 4 -->
                <div class="p-5 w-40 lg:w-52 md:w-52 flex flex-col bg-white border border-gray-200 rounded-xl shadow-md"
-                   data-aos="zoom-in-up" data-aos-duration="2000">
+                   data-aos="zoom-in" data-aos-duration="2000">
                    <div>
                        <picture class="rounded-lg block overflow-hidden">
                            <img class="hover:scale-125 ease-in-out duration-200" src="<?= BaseURL; ?>/img/produk/hp.jpg"
@@ -233,7 +234,7 @@
        </div>
        <!-- testimoni -->
        <div class="w-full relative">
-           <div class="flex justify-center p-2" data-aos="zoom-out" data-aos-duration="2000">
+           <div class="flex justify-center p-2" data-aos="zoom-in" data-aos-duration="2000">
                <h3 class="text-ungu text-3xl font-bold hover:underline underline-offset-4">
                    Testimoni
                </h3>
@@ -242,32 +243,32 @@
            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full place-items-center px-4 py-3 gap-4">
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t1.jpg" alt="testimoni1"
-                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in"
                        data-aos-duration="2000" />
                </div>
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t2.jpg" alt="testimoni1"
-                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in"
                        data-aos-duration="2000" />
                </div>
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t3a.jpg" alt="testimoni1"
-                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in"
                        data-aos-duration="2000" />
                </div>
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t4a.jpg" alt="testimoni1"
-                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in"
                        data-aos-duration="2000" />
                </div>
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
-                       class="w-40 hover:scale-200 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       class="w-40 hover:scale-200 duration-200 rounded-xl" data-aos="zoom-in"
                        data-aos-duration="2000" />
                </div>
                <div class="">
                    <img src="<?= BaseURL; ?>/img/testimoni/t5a.jpg" alt="testimoni1"
-                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in-up"
+                       class="w-40 hover:scale-110 duration-200 rounded-xl" data-aos="zoom-in"
                        data-aos-duration="2000" />
                </div>
            </div>

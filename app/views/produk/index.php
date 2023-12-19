@@ -93,8 +93,9 @@ if (window.location.search) {
                                     </span>
                                     </div>
                                     <div class="flex flex-col items-center space-y-2 justify-center">
-                                        <a href="#"
-                                            class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Beli</a>
+                                    <a href="#" id="a"
+                                        class="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center addCart"
+                                        data-id="<?= $produk['id_produk']; ?>">Beli</a>
                                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 1): ?>
                                         <div class="flex gap-x-2 justify-center">
                                             <a class="text-white items-end bg-pink hover:text-violet-500 focus:ring-4

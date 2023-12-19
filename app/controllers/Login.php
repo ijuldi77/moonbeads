@@ -7,6 +7,7 @@ class Login extends Controller{
         $this->view('templates/header_login_register', $data);
         $this->view('login/index');
         $this->view('templates/footer_login_register');
+        Flasher::flash();
     }
 
     public function masuk()
@@ -25,18 +26,23 @@ class Login extends Controller{
 
         if ($result != false) {
             // Login successful, redirect to home or show success message
+            $_SESSION['id_user'] = $result['id_user'];
             $_SESSION['role'] = $result['role'];
             $_SESSION['email'] = $result['email'];
-            echo "<script>
-                alert('Login Sukses');
-                window.location='" . BaseURL . "/home';
-            </script>";
+            Flasher::setFlash('Berhasil', 'Berhasil Login', 'success');
+            header('Location: ' . BaseURL . '/home');
+            exit;
         } else {
             // Login failed, redirect or show error message
-            echo "<script>
-                alert('Login Gagal');
-                window.location='" . BaseURL . "/login';
-            </script>";
+            Flasher::setFlash('Gagal', 'Gagal Login', 'error');
+            header('Location: ' . BaseURL . '/login');
+            exit;
+            // var_dump($_SESSION['flash']);
+            // die;
+            // echo "<script>
+            //     alert('Login Gagal');
+            //     window.location='" . BaseURL . "/login';
+            // </script>";
         }
     }
 

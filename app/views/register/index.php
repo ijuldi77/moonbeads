@@ -1,5 +1,6 @@
 <main class="flex justify-center items-center font-poppins w-full min-h-screen bg-background text-headline mx-auto">
     <section class="w-[30rem] m-9 flex flex-col space-y-9">
+        <?php Flasher::flash(); ?>
         <div class="flex items-center justify-center mb-10">
             <span class="bg-pink py-2 text-3xl text-white font-medium px-3 rounded-tl-3xl">Sign</span>
             <span

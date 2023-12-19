@@ -15,6 +15,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- alpine js -->
     <script src="<?= BaseURL; ?>/js/script.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+    <!-- sweetalert -->
+    <link rel="stylesheet" href="<?= BaseURL; ?>/css/sweetalert2.min.css">
+    <script src="<?= BaseURL; ?>/js/sweetalert2.min.js"></script>
+
     <!-- flowbite -->
     <link href="<? BaseURL; ?>/css/flowbite.min.css" rel="stylesheet" />
     <!-- css -->

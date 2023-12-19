@@ -1,4 +1,5 @@
 <main class="flex justify-center items-center font-poppins w-full min-h-screen bg-background text-headline mx-auto">
+    <?php Flasher::flash(); ?>
     <section class="w-[30rem] m-9 flex flex-col space-y-9">
         <div class="flex items-center justify-center mb-10">
             <span class="bg-pink py-2 text-3xl text-white font-medium px-3 rounded-tl-3xl">Log</span>
@@ -35,7 +36,7 @@
     </section>
 
 </main>
-<!-- modal search -->
+<!-- modal forgot password -->
 <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">

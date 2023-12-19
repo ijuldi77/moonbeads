@@ -52,5 +52,25 @@ $(function () {
       }
     });
   });
+
+  $(".addCart").on("click", function () {
+    console.log("Tombol diklik!");
+    const id_produk = $(this).data("id");
+    console.log("ID Produk:", id_produk);
+
+    $.ajax({
+      url: "http://localhost/moonbeads/public/keranjang/getAdd",
+      data: { id_produk: id_produk },
+      method: "post",
+      dataType: "json",
+      success: function (data) {
+        console.log("Produk ditambahkan ke keranjang:", data);
+      },
+      error: function (xhr, status, error) {
+        console.error("Error:", status, error);
+      },
+    });
+  });
+  
 });
 

@@ -8,6 +8,8 @@ class Produk extends Controller
         $data['judul'] = 'Produk';
         $data['produk'] = empty($produk) ? $this->model('Produk_model')->getAllProduk() : $produk;
         $data['jenis'] = $this->model('Jenis_model')->getAllJenis();
+        $data['keranjang'] = $this->model('Keranjang')->read();
+
 
         $this->view('templates/header', $data);
         $this->view('produk/index', $data);

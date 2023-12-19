@@ -31,6 +31,8 @@
 </head>
 
 <body class="font-poppins h-auto bg-background scroll-smooth overflow-x-hidden">
+    <?php Flasher::flash(); ?>
+
     <!-- Navbar atas -->
     <nav class="fixed left-0 border-b-slate-50 border-b-2 right-0 -top-2 lg:top-0 md:top-0 py-2 px-4 bg-main z-50"
         x-data="{navOpen : false}">
@@ -72,6 +74,7 @@
                 </div> -->
 
                 <div class="order-3 hidden md:order-2 sm:block">
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] != 1): ?>
                     <button type="button" data-modal-target="co_modal" data-modal-toggle="co_modal"
                         class="inline-flex items-center mr-5 px-4 py-2 text-sm font-medium text-center text-white bg-violet-700 rounded-lg hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 relative">
                         <ion-icon name="cart-outline" class="text-white font-semibold"></ion-icon>
@@ -80,6 +83,7 @@
                             1
                         </div>
                     </button>
+                    <?php endif; ?>
                     <!-- <a href="<?= BaseURL; ?>/login"> -->
                     <a href="<?= isset($_SESSION['role']) ? BaseURL . '/logout' : BaseURL . '/login' ?>">
                         <button class="grow bg-white px-8 py-4 font-bold text-grey rounded-full text-sm">
@@ -186,49 +190,71 @@
                 </div>
                 <!-- Modal body -->
                 <form id="form_cu" action="<?= BaseURL; ?>/produk/cart" method="post" enctype="multipart/form-data"
-                class="md:p-5 lg:p-4">
-                <input type="hidden" name="id_produk" id="idProduk">
-                <table class="w-full border-collapse border">
-                    <thead>
-                        <tr>
-                            <th class="p-3 bg-violet-400">Nama Produk</th>
-                            <th class="p-3 bg-violet-400">Harga</th>
-                            <th class="p-3 bg-violet-400">Jumlah Produk</th>
-                            <th class="p-3 bg-violet-400">Jumlah Harga</th>
-                        </tr>
-                    </thead>
-                    <tbody class="p-5">
-                        <tr class="p-3">
-                            <th>Violet</th>
-                            <th>Rp.10.000</th>
-                            <th>3</th>
-                            <th>Rp.30.000</th>
-                        </tr>
-                        <tr class="p-3">
-                            <th>Violet</th>
-                            <th>Rp.10.000</th>
-                            <th>3</th>
-                            <th>Rp.30.000</th>
-                        </tr>
-                        <tr class="p-3">
-                            <th>Violet</th>
-                            <th>Rp.10.000</th>
-                            <th>3</th>
-                            <th>Rp.30.000</th>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="flex items-center justify-end gap-x-7">
-                    <div class="text-end">
-                        <h4>Total Checkout</h4>
-                        <p class="">Rp.120.000</p>
-                    </div>
-                    <button type="submit" id="submitForm"
-                        class="text-white inline-flex items-center bg-ungu hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        Checkout
-                    </button>
-                </div>
-            </form>
+                    class="md:p-5 lg:p-4">
+                    <input type="hidden" name="id_produk" id="idProduk">
+                    <table class="w-full border-collapse border">
+                        <thead>
+                            <tr>
+                                <th class="p-3 bg-violet-400">Nama Produk</th>
+                                <th class="p-3 bg-violet-400">Harga</th>
+                                <th class="p-3 bg-violet-400">Jumlah Produk</th>
+                                <th class="p-3 bg-violet-400">Jumlah Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody class="p-5">
+                            <?php foreach ($data['keranjang'] as $item): ?>
+                                <tr class="p-3">
+                                    <th><?= $item['nama']; ?>
+                                    </th>
+                                    <th>
+                                        <?= $item['harga']; ?>
+                                    </th>
+                                    <th>
+                                        <?= $item['qty_produk']; ?>
+                                    </th>
+                                    <th>
+                                        <?= $item['total_harga']; ?>
+                                    </th>
+                                    </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                            </table>
+                    <?php $data['keranjang'] = isset($data['keranjang']) ? $data['keranjang'] : []; ?>
+                    <div class="flex items-center justify-end mt-8 gap-x-7">
+                        <div class="text-end">
+                            <h4>Total Checkout</h4>
+                            <?php
+                            $totalCheckout = 0;
+
+                            foreach ($data['keranjang'] as $item) {
+                                $totalCheckout += $item['total_harga'];
+                            }
+
+                            ?>
+                            <p class="">
+                                Rp.
+                                <?= number_format($totalCheckout, 0, '', '.'); ?>
+                            </p>
+                            </div>
+                            <button type="submit" id="submitForm"
+                                class="text-white inline-flex items-center bg-ungu hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                Checkout
+                            </button>
+                            </div>
+
+                    <!-- <div class="flex items-center justify-end mt-8 gap-x-7">
+                        <div class="text-end">
+                            <h4>Total Checkout</h4>
+                            <p class="">
+                                Rp.120.000
+                            </p>
+                        </div>
+                        <button type="submit" id="submitForm"
+                            class="text-white inline-flex items-center bg-ungu hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            Checkout
+                        </button>
+                    </div> -->
+                </form>
+            </div>
         </div>
     </div>
-</div>
